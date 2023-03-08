@@ -23,7 +23,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if ((itemWidth * itemCount) - itemWidth - itemWidth <= position) {
             nextButton.style.display = "none"
         }
-        prevButton.style.display = "block"
+        prevButton.style.display = "flex"
         position += itemWidth
         container.style.transform += ("translateX(-" + itemWidth + "px")
         nextStep()
@@ -31,7 +31,7 @@ document.addEventListener('DOMContentLoaded', function () {
     })
 
     prevButton.addEventListener('click', function () {
-        nextButton.style.display = "block"
+        nextButton.style.display = "flex"
         if (position - itemWidth === 0) {
             prevButton.style.display = "none"
         }
@@ -56,32 +56,6 @@ document.addEventListener('DOMContentLoaded', function () {
         progressBar.style.width = ""+ percentStep + "%"
         progressBar.innerHTML = ""+ percentStep + "% ("+ countQuestions +"/" + totalQuestions + ")"
     }
-
-    // prevButton.style.display = "none"
-    //
-    // nextButton.addEventListener('click', function () {
-    //     if ((itemWidth * itemCount) - itemWidth - itemWidth <= position) {
-    //         nextButton.style.display = "none"
-    //         prevButton.style.display = "block"
-    //     }
-    //     prevButton.style.display = "block"
-    //     position += itemWidth
-    //     container.style.transform += ("translateX(-" + itemWidth + "px")
-    //
-    // })
-    //
-    // prevButton.addEventListener('click', function () {
-    //
-    //     if ((itemWidth * itemCount) + itemWidth >= position) {
-    //         prevButton.style.display = "none"
-    //         nextButton.style.display = "block"
-    //     }else {
-    //         nextButton.style.display = "block"
-    //     }
-    //
-    //     position -= itemWidth
-    //     container.style.transform += ("translateX(" + itemWidth + "px")
-    // })
 
 
 });
