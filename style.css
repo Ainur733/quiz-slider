@@ -5,6 +5,7 @@ body {
 .aaf-container {
     max-width: 1200px;
     margin: 0 auto;
+
 }
 
 .aaf-container h1 {
@@ -18,6 +19,10 @@ body {
     border-radius: 15px;
     margin: 0 auto;
     padding: 30px;
+    background-image: url("bg.svg");
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: bottom;
 }
 
 .progress-bar {
