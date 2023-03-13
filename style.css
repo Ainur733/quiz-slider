@@ -1,10 +1,14 @@
 body {
     background-color: #EFF2FF;
 }
+.none {
+    display: none;
+}
 
 .aaf-container {
+
     max-width: 1200px;
-    margin: 0 auto;
+    margin: 100px auto;
 
 }
 
@@ -30,8 +34,6 @@ body {
     background-color: #F1F1F1;
     height: 30px;
     border-radius: 5px;
-
-
 }
 
 .progress-bar_inner {
@@ -73,8 +75,6 @@ body {
 .answers {
     display: flex;
     transition-duration: 1s;
-
-
 }
 
 .group {
@@ -147,13 +147,13 @@ body {
 }
 
 .survey-footer {
+    margin-top: 40px;
     display: flex;
     gap: 20px;
 }
 
 .survey-footer a {
-    margin-top: 40px;
-    display: flex;
+
     align-items: center;
     border-radius: 20px;
     text-decoration: none;
@@ -163,6 +163,7 @@ body {
 }
 
 .next {
+    display: flex;
     padding: 10px 30px 10px 15px;
 }
 
@@ -172,6 +173,7 @@ body {
 }
 
 .prev {
+
     padding: 10px 15px 10px 30px;
 }
 
@@ -183,5 +185,14 @@ body {
 
 .survey-footer a:hover {
     background-color: #dfe8f2;
+}
+
+.btn-finish {
+    align-items: center;
+    border-radius: 20px;
+    color: #fff;
+    border: 1px solid #469af7;
+    background-color: #469af7;
+    padding: 10px 20px;
 }
 

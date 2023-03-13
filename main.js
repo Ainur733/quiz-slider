@@ -4,17 +4,18 @@ document.addEventListener('DOMContentLoaded', function () {
     const prevButton = document.querySelector(".prev")
     const itemCount = document.querySelectorAll(".group").length
     const progressBar = document.querySelector(".progress-bar_inner")
+    const surveyFooter = document.querySelector(".survey-footer")
+    const btnFinish = document.querySelector(".btn-finish")
     const itemWidth = container.clientWidth
     let position = 0
     let percentOneStep = 100 / itemCount
     let percentStep = percentOneStep
-    let stepCount = 1
     let countQuestionsOneStep = 2
     let countQuestions = countQuestionsOneStep
     let totalQuestions = countQuestions * itemCount
 
 
-    prevButton.style.display = "none"
+
     progressBar.style.width = ""+ percentStep + "%"
     progressBar.innerHTML = ""+ percentStep + "% ("+ countQuestions +"/" + totalQuestions + ")"
 
@@ -22,6 +23,8 @@ document.addEventListener('DOMContentLoaded', function () {
     nextButton.addEventListener('click', function () {
         if ((itemWidth * itemCount) - itemWidth - itemWidth <= position) {
             nextButton.style.display = "none"
+            btnFinish.style.display = "block"
+            surveyFooter.style.justifyContent = "space-between"
         }
         prevButton.style.display = "flex"
         position += itemWidth
@@ -35,7 +38,7 @@ document.addEventListener('DOMContentLoaded', function () {
         if (position - itemWidth === 0) {
             prevButton.style.display = "none"
         }
-
+        btnFinish.style.display = "none"
         position -= itemWidth
         container.style.transform += ("translateX(" + itemWidth + "px")
         prevStep()
