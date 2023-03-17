@@ -194,5 +194,6 @@ body {
     border: 1px solid #469af7;
     background-color: #469af7;
     padding: 10px 20px;
+    cursor: pointer;
 }
 

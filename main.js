@@ -5,6 +5,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const itemCount = document.querySelectorAll(".group").length
     const progressBar = document.querySelector(".progress-bar_inner")
     const surveyFooter = document.querySelector(".survey-footer")
+    const surveyForm = document.querySelector(".survey-form")
     const btnFinish = document.querySelector(".btn-finish")
     const itemWidth = container.clientWidth
     let position = 0
@@ -59,6 +60,20 @@ document.addEventListener('DOMContentLoaded', function () {
         progressBar.style.width = ""+ percentStep + "%"
         progressBar.innerHTML = ""+ percentStep + "% ("+ countQuestions +"/" + totalQuestions + ")"
     }
+
+    surveyForm.addEventListener("submit", function (event) {
+        event.preventDefault()
+        console.log(surveyForm.elements)
+
+
+       let result =  Array.from(surveyForm.elements)
+
+            result.forEach(function (element) {
+                console.log(element)
+            })
+
+
+    })
 
 
 });
