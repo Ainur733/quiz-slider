@@ -7,6 +7,7 @@ document.addEventListener('DOMContentLoaded', function () {
     const surveyFooter = document.querySelector(".survey-footer")
     const surveyForm = document.querySelector(".survey-form")
     const btnFinish = document.querySelector(".btn-finish")
+    const radioBtns = document.querySelectorAll(".survey-form input[type ='radio']")
     const itemWidth = container.clientWidth
     let position = 0
     let percentOneStep = 100 / itemCount
@@ -14,11 +15,11 @@ document.addEventListener('DOMContentLoaded', function () {
     let countQuestionsOneStep = 2
     let countQuestions = countQuestionsOneStep
     let totalQuestions = countQuestions * itemCount
+    let arrayVariant_A = [1, 4, 5, 7, 10, 12, 13, 15, 18, 19, 21, 24, 25, 27, 29, 32, 33, 36, 37, 40, 41, 44, 45, 48, 50]
 
 
-
-    progressBar.style.width = ""+ percentStep + "%"
-    progressBar.innerHTML = ""+ percentStep + "% ("+ countQuestions +"/" + totalQuestions + ")"
+    progressBar.style.width = "" + percentStep + "%"
+    progressBar.innerHTML = "" + percentStep + "% (" + countQuestions + "/" + totalQuestions + ")"
 
 
     nextButton.addEventListener('click', function () {
@@ -49,28 +50,29 @@ document.addEventListener('DOMContentLoaded', function () {
         percentStep += percentOneStep
         countQuestions += countQuestionsOneStep
 
-        progressBar.style.width = ""+ percentStep + "%"
-        progressBar.innerHTML = ""+ percentStep + "% ("+ countQuestions +"/" + totalQuestions + ")"
+        progressBar.style.width = "" + percentStep + "%"
+        progressBar.innerHTML = "" + percentStep + "% (" + countQuestions + "/" + totalQuestions + ")"
     }
 
     function prevStep() {
         percentStep -= percentOneStep
         countQuestions -= countQuestionsOneStep
 
-        progressBar.style.width = ""+ percentStep + "%"
-        progressBar.innerHTML = ""+ percentStep + "% ("+ countQuestions +"/" + totalQuestions + ")"
+        progressBar.style.width = "" + percentStep + "%"
+        progressBar.innerHTML = "" + percentStep + "% (" + countQuestions + "/" + totalQuestions + ")"
     }
 
     surveyForm.addEventListener("submit", function (event) {
         event.preventDefault()
-        console.log(surveyForm.elements)
 
+        radioBtns.forEach(function (item, index) {
+            if (item.checked) {
+                if (arrayVariant_A.includes(index+1)) {
+                    console.log(item.value)
+                }
+            }
+        })
 
-       let result =  Array.from(surveyForm.elements)
-
-            result.forEach(function (element) {
-                console.log(element)
-            })
 
 
     })
