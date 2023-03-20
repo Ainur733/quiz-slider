@@ -60,6 +60,8 @@ document.addEventListener('DOMContentLoaded', function () {
 
         progressBar.style.width = "" + percentStep + "%"
         progressBar.innerHTML = "" + percentStep + "% (" + countQuestions + "/" + totalQuestions + ")"
+
+
     }
 
     function prevStep() {
@@ -73,22 +75,36 @@ document.addEventListener('DOMContentLoaded', function () {
     surveyForm.addEventListener("submit", function (event) {
         event.preventDefault()
 
+        for(let i=1; i<=25; i++) {
 
-        preloader.style.display = "block"
-        surveyForm.style.display = "none"
-        questions.style.display = "none"
-        radioBtns.forEach(function (item, index) {
-            if (item.checked) {
-                if (arrayVariant_A.includes(index + 1)) {
-                    result_A += 1
-                } else  {
-                    result_B += 1
-                }
-            }
-        })
+           if(!document.querySelectorAll("input[name='group" +i+ "']")[0].checked && !document.querySelectorAll("input[name='group" +i+ "']")[1].checked) {
+               document.querySelectorAll("input[name='group" +i+ "']").forEach(function (item) {
+                    alert("Не выбраны варианты " + document.querySelector("label[for='" +item.id+ "']").innerHTML )
+                   return
+               })
+           } else  {
+               preloader.style.display = "block"
+               surveyForm.style.display = "none"
+               questions.style.display = "none"
+               setTimeout(showResults, 5000)
+           }
+
+        }
+
+
 
         function showResults() {
             preloader.style.display = "none"
+
+            radioBtns.forEach(function (item, index) {
+                if (item.checked) {
+                    if (arrayVariant_A.includes(index + 1)) {
+                        result_A += 1
+                    } else  {
+                        result_B += 1
+                    }
+                }
+            })
 
             if(result_B > result_A && result_B - result_A >= 15) {
                 resultsDetached.style.display = "block"
@@ -111,9 +127,9 @@ document.addEventListener('DOMContentLoaded', function () {
 
         }
 
-        setTimeout(showResults, 5000)
 
-        console.log(result_A, result_B)
+
+
 
     })
 
