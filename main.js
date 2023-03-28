@@ -33,26 +33,7 @@ document.addEventListener('DOMContentLoaded', function () {
 
 
 
-    var docDefinition = {
-        content: [
-            // if you don't need styles, you can use a simple string to define a paragraph
-            'This is a standard paragraph, using default style',
 
-            // using a { text: '...' } object lets you set styling properties
-            {text: 'This paragraph will have a bigger font', fontSize: 15},
-
-            // if you set the value of text to an array instead of a string, you'll be able
-            // to style any part individually
-            {
-                text: [
-                    'This paragraph is defined as an array of elements to make it possible to ',
-                    {text: 'restyle part of it and make it bigger ', fontSize: 15},
-                    'than the rest.'
-                ]
-            }
-        ]
-    };
-    pdfMake.createPdf(docDefinition).download();
 
     nextButton.addEventListener('click', function () {
         if ((itemWidth * itemCount) - itemWidth - itemWidth <= position) {
@@ -130,19 +111,102 @@ document.addEventListener('DOMContentLoaded', function () {
             })
 
             if (result_B > result_A && result_B - result_A >= 15) {
-                resultsDetached.style.display = "block"
+                // resultsDetached.style.display = "block"
+                var docDefinition = {
+                    content: [
+                        // if you don't need styles, you can use a simple string to define a paragraph
+                        'This is a standard paragraph, using default style',
+
+                        // using a { text: '...' } object lets you set styling properties
+                        {text: 'This paragraph will have a bigger font', fontSize: 15},
+
+                        // if you set the value of text to an array instead of a string, you'll be able
+                        // to style any part individually
+                        {
+                            text: [
+                                'This paragraph is defined as an array of elements to make it possible to ',
+                                {text: 'restyle part of it and make it bigger ', fontSize: 15},
+                                'than the rest.'
+                            ]
+                        }
+                    ]
+                };
+                pdfMake.createPdf(docDefinition).download();
+
+
+
             }
 
             if (result_B > result_A && result_B - result_A <= 14) {
-                resultsCircumspect.style.display = "block"
+                // resultsCircumspect.style.display = "block"
+                var docDefinition = {
+                    content: [
+                        // if you don't need styles, you can use a simple string to define a paragraph
+                        'This is a standard paragraph, using default style',
+
+                        // using a { text: '...' } object lets you set styling properties
+                        {text: 'This paragraph will have a bigger font', fontSize: 15},
+
+                        // if you set the value of text to an array instead of a string, you'll be able
+                        // to style any part individually
+                        {
+                            text: [
+                                'This paragraph is defined as an array of elements to make it possible to ',
+                                {text: 'restyle part of it and make it bigger ', fontSize: 15},
+                                'than the rest.'
+                            ]
+                        }
+                    ]
+                };
+                pdfMake.createPdf(docDefinition).download();
             }
 
             if (result_A > result_B && result_A - result_B <= 14) {
-                resultsInitiative.style.display = "block"
+                // resultsInitiative.style.display = "block"
+                var docDefinition = {
+                    content: [
+                        // if you don't need styles, you can use a simple string to define a paragraph
+                        'This is a standard paragraph, using default style',
+
+                        // using a { text: '...' } object lets you set styling properties
+                        {text: 'This paragraph will have a bigger font', fontSize: 15},
+
+                        // if you set the value of text to an array instead of a string, you'll be able
+                        // to style any part individually
+                        {
+                            text: [
+                                'This paragraph is defined as an array of elements to make it possible to ',
+                                {text: 'restyle part of it and make it bigger ', fontSize: 15},
+                                'than the rest.'
+                            ]
+                        }
+                    ]
+                };
+                pdfMake.createPdf(docDefinition).download();
             }
 
             if (result_A > result_B && result_A - result_B >= 15) {
-                resultsHyperactive.style.display = "block"
+                // resultsHyperactive.style.display = "block"
+                var docDefinition = {
+                    content: [
+                        // if you don't need styles, you can use a simple string to define a paragraph
+                        'This is a standard paragraph, using default style',
+
+                        // using a { text: '...' } object lets you set styling properties
+                        {text: 'This paragraph will have a bigger font', fontSize: 15},
+
+                        // if you set the value of text to an array instead of a string, you'll be able
+                        // to style any part individually
+                        {
+                            text: [
+                                'This paragraph is defined as an array of elements to make it possible to ',
+                                {text: 'restyle part of it and make it bigger ', fontSize: 15},
+                                'than the rest.'
+                            ]
+                        }
+                    ]
+                };
+                pdfMake.createPdf(docDefinition).download();
             }
 
 
