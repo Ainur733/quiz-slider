@@ -1,3 +1,5 @@
+
+
 document.addEventListener('DOMContentLoaded', function () {
     const questions = document.querySelector(".questions")
     const container = document.querySelector(".answers")
@@ -29,6 +31,28 @@ document.addEventListener('DOMContentLoaded', function () {
     progressBar.style.width = "" + percentStep + "%"
     progressBar.innerHTML = "" + percentStep + "% (" + countQuestions + "/" + totalQuestions + ")"
 
+
+
+    var docDefinition = {
+        content: [
+            // if you don't need styles, you can use a simple string to define a paragraph
+            'This is a standard paragraph, using default style',
+
+            // using a { text: '...' } object lets you set styling properties
+            {text: 'This paragraph will have a bigger font', fontSize: 15},
+
+            // if you set the value of text to an array instead of a string, you'll be able
+            // to style any part individually
+            {
+                text: [
+                    'This paragraph is defined as an array of elements to make it possible to ',
+                    {text: 'restyle part of it and make it bigger ', fontSize: 15},
+                    'than the rest.'
+                ]
+            }
+        ]
+    };
+    pdfMake.createPdf(docDefinition).download();
 
     nextButton.addEventListener('click', function () {
         if ((itemWidth * itemCount) - itemWidth - itemWidth <= position) {
@@ -75,22 +99,21 @@ document.addEventListener('DOMContentLoaded', function () {
     surveyForm.addEventListener("submit", function (event) {
         event.preventDefault()
 
-        for(let i=1; i<=25; i++) {
+        for (let i = 1; i <= 25; i++) {
 
-           if(!document.querySelectorAll("input[name='group" +i+ "']")[0].checked && !document.querySelectorAll("input[name='group" +i+ "']")[1].checked) {
-               document.querySelectorAll("input[name='group" +i+ "']").forEach(function (item) {
-                    alert("Не выбраны варианты " + document.querySelector("label[for='" +item.id+ "']").innerHTML )
-                   return
-               })
-           } else  {
-               preloader.style.display = "block"
-               surveyForm.style.display = "none"
-               questions.style.display = "none"
-               setTimeout(showResults, 5000)
-           }
+            if (!document.querySelectorAll("input[name='group" + i + "']")[0].checked && !document.querySelectorAll("input[name='group" + i + "']")[1].checked) {
+                document.querySelectorAll("input[name='group" + i + "']").forEach(function (item) {
+                    alert("Не выбраны варианты " + document.querySelector("label[for='" + item.id + "']").innerHTML)
+                    return
+                })
+            } else {
+                preloader.style.display = "block"
+                surveyForm.style.display = "none"
+                questions.style.display = "none"
+                setTimeout(showResults, 5000)
+            }
 
         }
-
 
 
         function showResults() {
@@ -100,35 +123,30 @@ document.addEventListener('DOMContentLoaded', function () {
                 if (item.checked) {
                     if (arrayVariant_A.includes(index + 1)) {
                         result_A += 1
-                    } else  {
+                    } else {
                         result_B += 1
                     }
                 }
             })
 
-            if(result_B > result_A && result_B - result_A >= 15) {
+            if (result_B > result_A && result_B - result_A >= 15) {
                 resultsDetached.style.display = "block"
             }
 
-            if(result_B > result_A && result_B - result_A <= 14) {
+            if (result_B > result_A && result_B - result_A <= 14) {
                 resultsCircumspect.style.display = "block"
             }
 
-            if(result_A > result_B && result_A - result_B <= 14) {
+            if (result_A > result_B && result_A - result_B <= 14) {
                 resultsInitiative.style.display = "block"
             }
 
-            if(result_A > result_B && result_A - result_B >= 15) {
+            if (result_A > result_B && result_A - result_B >= 15) {
                 resultsHyperactive.style.display = "block"
             }
 
 
-
-
         }
-
-
-
 
 
     })
