@@ -162,7 +162,7 @@ body {
     gap: 20px;
 }
 
-.survey-footer a {
+.prev, .next {
 
     align-items: center;
     border-radius: 20px;
@@ -193,11 +193,11 @@ body {
 }
 
 
-.survey-footer a:hover {
+.prev:hover, .next:hover {
     background-color: #dfe8f2;
 }
 
-.btn-finish {
+.btn-finish, .btn-get-result {
     align-items: center;
     border-radius: 20px;
     color: #fff;
@@ -206,6 +206,10 @@ body {
     padding: 10px 20px;
     cursor: pointer;
 }
+.btn-get-result:hover {
+    background-color: #469af7;
+}
+
 
 .detached, .circumspect, .initiative, .hyperactive {
     display: none;
